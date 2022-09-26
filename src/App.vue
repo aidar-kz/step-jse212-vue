@@ -1,28 +1,37 @@
 <script setup>
 import { ref } from 'vue'
-import BaseButton from '@/components/elements/BaseButton.vue';
-import BaseInput from './components/elements/BaseInput.vue';
+import browsers from '@/assets/browsers';
+import ParentComp from '@/components/ParentComp.vue';
 
 const data = ref({
-  name: '',
-  email: '',
-  password: ''
+  text: ''
 })
 
 const onClick = () => alert('Кнопка нажата!');
 </script>
 
 <template>
-  <BaseButton primary big @click="onClick">
-    Моя кнопка
-  </BaseButton>
+  <ParentComp />
+  <section>
+    <h4>v-list</h4>
+    <h1 v-list.random="browsers">Hello</h1>
+  </section>
+  
+  <section>
+    <h4>v-random-bg</h4>
+    <textarea v-model="data.text" v-random-bg></textarea>
+  </section>
+  
+  <section>
+    <h4>v-lorem</h4>
+    <h2 v-lorem:ru="4"></h2>
+    <p v-lorem:ru></p>
+  </section>
 
-  <br>
-  <br>
-
-  <BaseInput type="text" label="Имя:" v-model="data.name" />
-  <BaseInput type="email" label="Эл.почта:" v-model="data.email" />
-  <BaseInput type="password" label="Пароль:" v-model="data.password" />
+  <section>
+    <h4>v-price</h4>
+    <h2 v-price="125000"></h2>
+  </section>
 </template>
 
 <style>
