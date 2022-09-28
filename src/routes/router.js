@@ -6,7 +6,22 @@ const routes = [
     path: "/directives",
     component: () => import("@/views/DirectivesView.vue"),
   },
-  { path: "/shop", component: () => import("@/views/ShopView.vue") },
+  {
+    path: "/shop",
+    component: () => import("@/views/shop/ShopLayout.vue"),
+    children: [
+      {
+        path: "",
+        name: "all-products",
+        component: () => import("@/views/shop/AllProductsView.vue"),
+      },
+      {
+        path: ":id",
+        name: "product-view",
+        component: () => import("@/views/shop/ProductView.vue"),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

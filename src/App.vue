@@ -14,9 +14,4 @@ const data = ref({
 
 <style>
 @import 'bootstrap/dist/css/bootstrap.css';
-
-#app {
-  width: 300px;
-  margin: 0 auto;
-}
 </style>
