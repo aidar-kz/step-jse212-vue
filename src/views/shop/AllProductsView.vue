@@ -8,7 +8,6 @@ const store = useShopStore();
 onMounted(() => {
   store.fetchProducts()
 })
-
 </script>
 
 <template>
