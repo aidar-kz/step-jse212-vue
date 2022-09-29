@@ -11,6 +11,12 @@ export const useShopStore = defineStore("shopStore", {
     cartQuantity() {
       return this.cart.reduce((acc, product) => acc + product.quantity, 0);
     },
+    cartTotal() {
+      return this.cart.reduce(
+        (acc, product) => acc + product.price * product.quantity,
+        0
+      );
+    },
   },
   actions: {
     async fetchProducts() {
@@ -30,11 +36,20 @@ export const useShopStore = defineStore("shopStore", {
       );
 
       if (index === -1) {
-        this.cart.push(newProduct);
+        this.cart.push({ ...newProduct, quantity: 1 });
       } else {
         this.cart[index].quantity++;
       }
 
+      this.saveCart();
+    },
+    deleteFromCart(productId) {
+      const index = this.cart.findIndex(product => product.id === productId);
+      this.cart.splice(index, 1);
+      this.saveCart();
+    },
+    clearCart() {
+      this.cart = [];
       this.saveCart();
     },
     saveCart() {

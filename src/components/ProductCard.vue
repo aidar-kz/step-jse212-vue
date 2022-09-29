@@ -24,7 +24,7 @@ defineProps({
 
       <p class="card-text" v-price="product.price" />
 
-      <button class="btn btn-primary mt-auto align-self-end" @click="store.addToCart({ ...product, quantity: 1 })">В
+      <button class="btn btn-primary mt-auto align-self-end" @click="store.addToCart(product)">В
         корзину</button>
     </div>
   </div>
