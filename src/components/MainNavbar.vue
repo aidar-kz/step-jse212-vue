@@ -15,6 +15,9 @@
             <RouterLink to="/directives" class="nav-link">Директивы</RouterLink>
           </li>
           <li class="nav-item">
+            <RouterLink to="/transitions" class="nav-link">Переходы</RouterLink>
+          </li>
+          <li class="nav-item">
             <RouterLink to="/shop" class="nav-link">Магазин</RouterLink>
           </li>
         </ul>

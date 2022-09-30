@@ -7,6 +7,10 @@ const routes = [
     component: () => import("@/views/DirectivesView.vue"),
   },
   {
+    path: "/transitions",
+    component: () => import("@/views/TransitionsView.vue"),
+  },
+  {
     path: "/shop",
     component: () => import("@/views/shop/ShopLayout.vue"),
     children: [
